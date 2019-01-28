@@ -6,10 +6,13 @@ layout: default
 
 ## About me
 
-I am a cybersecurity student, currently pursuing a Master degree in Telecom SudParis, France.
+I am a cybersecurity student at **Telecom SudParis** (currently pursuing my master's degree).
+
+I love cybersecurity, I am a member of the [InfoSec club](https://hackademint.org/website/) of my university. I really like solving binary exploitation challenges, you find the slides I used for a presentation about binary exploitation [here](slides_pwn.pdf).
+
+Distributed systems and sofware engineering in general also amaze me. You can find some of my projects on [Github](https://github.com/bonnetn).
 
 ## Contact
-
 
 |:-------------------|:---|
 | LinkedIn | [Link](https://www.linkedin.com/in/bonnet-n/)| 
