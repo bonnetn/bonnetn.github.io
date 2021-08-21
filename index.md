@@ -17,7 +17,7 @@ I am a member of [OUTech](https://outech.fr/), a team building a robot for the [
 
 I love cybersecurity, I am a member of the [InfoSec club](https://hackademint.org/website/) of my university. I really like solving binary exploitation challenges, you can find the slides of a presentation I gave about binary exploitation [here](slides_pwn.pdf).
 
-Distributed systems and sofware engineering in general also amaze me. You can find some of my projects on [Github](https://github.com/bonnetn).
+Distributed systems and software engineering in general also amaze me. You can find some of my projects on [Github](https://github.com/bonnetn).
 
 ## Contact
 
