@@ -13,7 +13,7 @@ I graduated from [Telecom SudParis](https://www.telecom-sudparis.eu/en/) with my
 
 ## Some stuff on the side to keep me busy
 
-I am a member of [OUTech](https://outech.fr/), a team building a robot for the [the french robotic competition](https://en.wikipedia.org/wiki/Coupe_de_France_de_robotique).
+I am a member of [OUTech](https://github.com/outech-robotic), a team building a robot for the [the french robotic competition](https://en.wikipedia.org/wiki/Coupe_de_France_de_robotique).
 
 I love cybersecurity, I am a member of the [InfoSec club](https://hackademint.org/website/) of my university. I really like solving binary exploitation challenges, you can find the slides of a presentation I gave about binary exploitation [here](slides_pwn.pdf).
 
