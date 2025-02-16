@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<!--
+                  `````             `               ```                 ```````
+```          `````````````````````````````      ```````````         ````````````
+``` ``````` ```````````````  `````````` ````````````````       ``` ```` `````
+```````````` ```       ````` ++.   .#@@@@  ````````   ````` ``  ```   ``````````
+``````` `````   ```````   :@@@@@@@@@@@@@@@@@@@@@@::::::,:,,::::   `````` .@@:
+ ```` ;@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,:`````````.::@@@@##@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#';,,@@@@@@@@@@@@@@@:::`````````.: @@@@@@@@@@@@@@@@
+@@@@@@@@@@@@                      @@@@@@@@@@@@@@@:::`` ``````,:`@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@ @@@@@@@@@@@@@@@@@@   @@@@@@@@@@@@@@@,::```` ````:: @@@@@@@@@@@@@@@@
+@@@@@@ #@@@@ @@@@@@@@#@@@@@@@@@   @@@@@@@@@@@@@@@:::`````` ``,, @@@@@@@@@@@@@@@@
+@@@@@   @@@@ @@@@@`  @@@@@@@ :;;  @@@@@@@@@@@@@@@:::`````````:, @@@@@@@@@@ @@@@@
+@@@@     @@@ @@@`   +@@@ @@ ;;;:.  ;,#@@@@@@@@@@@:::````` `` :: @@@@@@@@@@  ;@@@
+@@@      @@@ @@`    @@@@  @@:    :;;:#@@@@@@@@@@@:,:,,,,,,.`:::+@@@@@@@@@@+  #@@
+@@      `@@@ @      @@@    ;;;;;;;;`.::: @@@@@@@@`:::::::::::: @@@@@@@@@@@@   @@
+@@       @@@    '   @@:     ;;;:. ::;;;; ,`+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'   @@
+ +   '   @@@   '';   @  ;'  @ ::;.`::;.@@    @@@@@@@@@@@@@@@@@@@,@@@@@@@@@    #
+     '   @,@   '''      '''   :.@++@ : @    .@@@@@@@@@@@@@@@@@  @@@@@@@@@
+     '  @@ ., '''''    ''     ;@,   @ .#@    `      .@@@@@@@:  `@@@@@@@@   ;
+    `'  @@  `'''''''; ''      ;@    @`;:.;;;;:       @@@@@@  `  @@@@@@@   ''
+'    '  @@   ;'''''''''       :.@@@# ::;:;;;;::     @@@@@#  ',  .@@@@@`  `''.  '
+''  ''  @'    '''''''';      ;;;;;;;;;:.``;::::;;..@'@@@   ' ......` @   ;''' ''
+'''''  .@     '''''''.,,   `::;;;;;:;:;;;: @@++#@@@  @@   '' ':   .' ++  '''''''
+'''''   @     '''''';.,, , :;;::;::;;;;;;; @@@@@@@   @ ` '''`'++++++ ''@@@@@@@@@
+'''''   `     ''''''',,, , ::: : :;;;;;;::, @@@@@+      ''@@ '++++++ ,@@@@@@@@@@
+''''',     '  ''''';;.,, , :::.: :;;;;;;;::,@@@@@,  ;  :@@@@ ;++++'+ @@@@@@@@@@@
+''''''     '  ;;;;;;' ,, ,,,::;.:`;;;:;;;:.;'@@@@;  '' ''@@@@@@@@@@@@@@@@@@@@@@@
+'''''';   ''  ;;;;;;; ,,,,. ,:::`:,     ,`;` `@@@#  ;''''''''''+''''''''''''''''
+'''''''. '''  ::::,,'; ,,,,,, `:::::` :: ,,`;:@'@#  .'''''''''''''''''''''''''''
+'''' ''';'';  ;;;;''';;; ,,,,,,,,,,,, :;;`  :;:: +  `''''''''+''+''  ''''''''''
+'''':'''''';  ;;;;  '';;'   ````      :;::` `  @@   ''''''''    ``   ````````
+'''';'''''''  ,;;   ;;;;;;;`,,.....   ``       `    '''  '''         ```````
+''''''''''''   ;     ;';;;;.,,.;;''   ,,;.   ;;;  '': ; ''''         ``````    ;
+'':''.'''''''     ,  ';' '';,,.;;;;   ,,;,   ;;';;;;;' `.;'`        `````     .'
+''.'' ''`' '''    '   '  ;;;,,.;;;'   ,,;;   ;;;;;;;;;;;;   ` .'    ````      ''
+''''':'';''''''   ''     ;;;,,.;;;;   ,,;;   ;;;;;;;';;`     '''    ``       '''
+'''''',''`':''''; '''`   ;;;` ;;;;;'; ,,;;  ';;;;;;;;:     :''''           ;''''
+''''''''''''''''''''''' ``;'';;;;;;;;';;;;;;;;;;;;;;'   ` ;''''';        '''''''
+''''''''''''''''''''''', ;;;;;;;;;;;';;;;;;;;;;;;;;'      '''''''',    '''''''''
+'''''''''''''''''''''; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;'     ''''''''''':`''''''''''
+-->
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nicolas' website</title>
+
+    <!-- Retro Favicon -->
+    <link rel="icon" type="image/png" href="https://www.example.com/favicon.png"/>
+
+    <style>
+        /* Minimalist CSS, typical of the 90s style */
+        body {
+            background-color: black;
+            background: url("https://upload.wikimedia.org/wikipedia/commons/a/a0/Digital_rain_animation_small_letters_shine.gif") repeat;
+            background-size: auto;
+            margin: 0;
+            padding: 0;
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+            color: black;
+        }
+
+        body a {
+            color: #00FF00;
+        }
+
+        body a:link {
+            color: #0000EE;
+        }
+
+        body a:visited {
+            color: #551A8B;
+        }
+
+
+        h1 {
+            color: #FF00FF;
+            text-align: center;
+        }
+
+        /* Neon-like links, for that retro vibe */
+        a {
+            color: #00FF00;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #FFD700;
+            text-decoration: underline;
+        }
+
+        /* For the overlay snow effect */
+        .snowflake {
+            position: fixed;
+            top: -50px;
+            font-size: 24px;
+            color: #FFFFFF;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* For the images that follow the cursor */
+        .trailer {
+            position: absolute;
+            pointer-events: none;
+            font-size: 1rem;
+            transition: opacity 1s ease-out;
+            opacity: 0;
+        }
+
+        .fake-browser-warning {
+            background-color: yellow;
+            padding: 10px;
+            border: 3px double #FF0000;
+            text-align: center;
+        }
+
+        .fake-browser-warning p {
+            font-size: 18px;
+            color: magenta;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .welcome-banner {
+            background-color: cyan;
+        }
+
+        .welcome-banner p {
+            display: inline-block;
+            padding-left: 100%;
+            animation: welcome-banner-marquee 30s linear infinite;
+            margin: 0;
+
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+            color: magenta;
+            font-size: 24px;
+            text-wrap: nowrap;
+        }
+
+        @keyframes welcome-banner-marquee {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-100%, 0);
+            }
+        }
+
+        .under-construction-banner {
+            text-align: center;
+        }
+
+        .under-construction-banner p {
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+        }
+
+        .main-section {
+            border: 5px ridge black;
+            padding: 10px;
+            text-align: center;
+            background-color: white;
+            font-family: Arial, sans-serif;
+            margin-left: 10rem;
+            margin-right: 10rem;
+        }
+
+
+        .main-section h2 {
+            color: red;
+        }
+
+        .main-content section {
+            text-align: left;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            text-wrap: wrap;
+        }
+
+        .main-content {
+            display: flex;
+            /*flex-direction: row;*/
+        }
+
+
+        @media (max-width: 1200px) {
+            .main-content {
+                flex-direction: column;
+            }
+        }
+
+        .visitor-counter {
+            text-align: center;
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+            color: magenta;
+            font-size: large;
+        }
+
+        .copyright-footer {
+            text-align: center;
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+            font-size: medium;
+            color: white;
+        }
+
+        #my-button {
+            height: 3rem;
+            font-style: italic;
+            z-index: 1;
+            position: relative;
+        }
+
+        #fireworks-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            pointer-events: none; /* Important! */
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- Big 90s-style warning about resolution and browsers -->
+<header class="fake-browser-warning">
+    <p>THIS SITE IS BEST VIEWED AT 800x600 AND ON INTERNET EXPLORER 5 OR NETSCAPE 4</p>
+</header>
+
+<!-- Horizontal scrolling text -->
+<header class="welcome-banner">
+    <p>Welcome to my website!!!</p>
+</header>
+
+<!-- Main title -->
+<h1> Nicolas' website </h1>
+
+<section class="main-section">
+    <h2>
+        <b>Welcome!</b>
+    </h2>
+    <div class="main-content">
+        <div>
+            <img src="https://avatars0.githubusercontent.com/u/36550428" alt="My face">
+        </div>
+
+        <section>
+            <h3>Who am I?</h3>
+
+            <p>I am currently working as a Sr Software Engineer at <a href="https://databricks.com/">Databricks</a>.
+
+            <p>Before that, I was a Software Engineer at <a href="https://www.uber.com/">Uber</a>.</p>
+
+            <p>I graduated from <a href="https://www.telecom-sudparis.eu/en/">Telecom SudParis</a> with my
+                Master of science in 2019.</p>
+
+            <h3>Some stuff on the side to keep me busy</h3>
+
+            <p>I am a member of <a href="https://github.com/outech-robotic">OUTech</a>, a team building a robot
+                for the <a href="https://en.wikipedia.org/wiki/Coupe_de_France_de_robotique">the french robotic
+                    competition</a>.</p>
+
+            <p>I love cybersecurity, I am a member of the <a href="https://hackademint.org/">InfoSec club</a> of
+                my university. I really like solving binary exploitation challenges, you can find the slides of
+                a presentation I gave about binary exploitation <a href="/slides_pwn.pdf">here</a>.</p>
+
+            <p>Distributed systems and software engineering in general also amaze me. You can find some of my
+                projects on <a href="https://github.com/bonnetn">Github</a>.</p>
+
+
+            <h3>Fun stuff..</h3>
+            <canvas id="fireworks-canvas"></canvas>
+            <button id="my-button" onclick="onMyButtonClicked(this, event)">Loading...</button>
+
+            <h3>Contact</h3>
+
+            <table>
+                <tbody>
+                <tr>
+                    <td>LinkedIn</td>
+                    <td><a href="https://www.linkedin.com/in/bonnet-n/">Link</a></td>
+                </tr>
+                <tr>
+                    <td>Mail</td>
+                    <td><a href="mailto:mail@nicolasbon.net">mail@nicolasbon.net</a></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3 id="pgp-key">PGP key</h3>
+
+            <details>
+                <summary>Click to view PGP key</summary>
+                <pre>-----BEGIN PGP PUBLIC KEY BLOCK-----
+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
+=JlLr
+ -----END PGP PUBLIC KEY BLOCK-----
+                    </pre>
+            </details>
+        </section>
+    </div>
+</section>
+
+
+<!-- Visitor counter -->
+<div class="visitor-counter">
+    <p>You are visitor #TODO</p>
+</div>
+
+<!-- Footer -->
+<footer class="copyright-footer">
+    <p><span style="display:inline-block; transform: scaleX(-1);" title="copyleft symbol">©</span> 1999-<span
+            id="currentYear"></span> - nicolasbon.net</p>
+    <p><a href="mailto:mail@nicolasbon.net">Contact Me</a></p>
+</footer>
+
+<footer class="under-construction-banner">
+    <p> This website is still under construction! </p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/TrianguloConstru%C3%A7%C3%A3o.png"
+         alt="Under Construction" width="200" height="200"/>
+</footer>
+
+<script>
+    // ================================
+    //     Apply "snow" effect
+    // ================================
+    const MAX_FLAKES = 20;
+    const SNOW_CHARACTER = "✨";
+
+    const createSnowflake = () => {
+        const snowflake = document.createElement("div");
+        snowflake.className = "snowflake";
+        snowflake.textContent = SNOW_CHARACTER;
+
+        snowflake.style.left = Math.random() * window.innerWidth + "px";
+        snowflake.style.top = "-50px";
+
+        const size = (Math.random() * 20) + 10;
+        snowflake.style.fontSize = size + "px";
+
+        snowflake.dataset.speed = (Math.random() * 2) + 0.5;
+
+        document.body.appendChild(snowflake);
+        return snowflake;
+    }
+
+    const animateSnowflakes = (flakes) => {
+        for (const flake of flakes) {
+            const top = parseFloat(flake.style.top);
+            const speed = parseFloat(flake.dataset.speed);
+
+            // Move the flake down
+            flake.style.top = (top + speed) + "px";
+
+            // If flake goes off-screen, reset it at the top
+            if (top > window.innerHeight) {
+                flake.style.top = "-50px";
+                flake.style.left = Math.random() * window.innerWidth + "px";
+            }
+        }
+        requestAnimationFrame(() => animateSnowflakes(flakes));
+    }
+
+    addEventListener("DOMContentLoaded", () => {
+        const flakes = Array.from({length: MAX_FLAKES}, createSnowflake);
+        animateSnowflakes(flakes);
+    })
+
+    // ================================
+    //     Apply cursor trailer
+    // ================================
+    const TRAILER_COUNT = 10;
+    const TRAILER_EMOJI = "🔥";
+    const UPDATE_TRAILER_EVERY_N_TICK = 3;
+
+    const createTrailer = () => {
+        const span = document.createElement("span");
+        span.textContent = TRAILER_EMOJI;
+        span.className = "trailer";
+        span.style.left = "0px";
+        span.style.top = "0px";
+        span.style.zIndex = 9999; // ensure it appears above other elements
+        document.body.appendChild(span);
+        return span;
+    }
+
+    const trailerMoveMouse = (e, trailerElements, currentIteration) => {
+        if (currentIteration % 3 === 0) {
+            const span = trailerElements[currentIteration / UPDATE_TRAILER_EVERY_N_TICK];
+            span.style.left = (e.pageX - 10) + "px";
+            span.style.top = (e.pageY - 10) + "px";
+
+            span.style.opacity = 1;
+
+            setTimeout(function () {
+                span.style.opacity = 0;
+            }, 200);
+        }
+
+        return (currentIteration + 1) % (TRAILER_COUNT * UPDATE_TRAILER_EVERY_N_TICK);
+    };
+
+    addEventListener("DOMContentLoaded", (event) => {
+        const trailerElements = Array.from({length: TRAILER_COUNT}, createTrailer);
+        let currentIteration = 0;
+        document.addEventListener("mousemove", (e) => {
+            currentIteration = trailerMoveMouse(e, trailerElements, currentIteration);
+        });
+    })
+
+    // ================================
+    //     Update footer year
+    // ================================
+    addEventListener("DOMContentLoaded", (event) => {
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    });
+
+    // ================================
+    //     Button click counter
+    // ================================
+    const EVENT_ENDPOINT_URL = "https://widgets.nicolasbon.net/events";
+    const COUNTER_VALUE_ENDPOINT_URL = "https://widgets.nicolasbon.net/counter/value";
+
+    const updateButtonValue = (newValue) => {
+        document.getElementById("my-button").textContent = `Collectively, visitors of this website clicked this button ${newValue.toLocaleString()} times.`;
+    };
+
+    const onMyButtonClicked = (event) => {
+        console.log("Button clicked!", event);
+        createExplosion(event.clientX + window.scrollX, event.clientY + window.scrollY);
+
+        fetch(COUNTER_VALUE_ENDPOINT_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({}) // An empty object as requested
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Request failed with status ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                updateButtonValue(data.value);
+            })
+            .catch(error => {
+                console.error("POST counter value error:", error);
+            });
+    }
+
+    addEventListener("DOMContentLoaded", (event) => {
+        const myButton = document.getElementById('my-button');
+        myButton.addEventListener('click', (e) => {
+            onMyButtonClicked(e);
+        });
+
+        fetch(COUNTER_VALUE_ENDPOINT_URL)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Request failed with status ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                updateButtonValue(data.value);
+            })
+            .catch(error => {
+                console.error("GET counter value error:", error);
+            });
+    });
+
+    const eventSource = new EventSource(EVENT_ENDPOINT_URL);
+    eventSource.addEventListener("newcountervalue", (event) => {
+        try {
+            const data = JSON.parse(event.data);
+            updateButtonValue(data.value);
+        } catch (error) {
+            console.error("Error parsing SSE data:", error);
+        }
+    });
+
+    eventSource.onerror = (error) => {
+        console.error("SSE error:", error);
+    };
+
+    const resizeCanvas = (canvas) => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    };
+
+    class Particle {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            const angle = Math.random() * 2 * Math.PI;
+            const speed = Math.random() * 5 + 2; // between 2 and 7
+            this.vx = Math.cos(angle) * speed;
+            this.vy = Math.sin(angle) * speed;
+            this.color = `hsl(${Math.floor(Math.random() * 360)}, 100%, 60%)`;
+            this.life = 60 + Math.random() * 20; // frames (about 1s+)
+            this.remainingLife = this.life;
+            this.size = 5;
+            this.opacity = 1;
+        }
+
+        update() {
+            this.remainingLife -= 1;
+            this.x += this.vx;
+            this.y += this.vy;
+            // Fade out
+            this.opacity = this.remainingLife / this.life;
+        }
+
+        draw(context) {
+            context.save();
+            context.globalAlpha = this.opacity;
+            context.fillStyle = this.color;
+            context.beginPath();
+            context.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+            context.fill();
+            context.restore();
+        }
+    }
+
+    let particles = [];
+
+    // Create an explosion of particles at (x, y)
+    const createExplosion = (x, y) => {
+        const numParticles = 30;
+        for (let i = 0; i < numParticles; i++) {
+            particles.push(new Particle(x, y));
+        }
+    };
+
+    // Animate & render
+    const animate = (ctx, canvas) => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach(p => {
+            p.update();
+            p.draw(ctx);
+        });
+
+        particles = particles.filter(p => p.remainingLife > 0);
+
+        requestAnimationFrame(() => animate(ctx, canvas));
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const canvas = document.querySelector('#fireworks-canvas');
+        const ctx = canvas.getContext('2d');
+
+        window.addEventListener('resize', () => {
+            resizeCanvas(canvas)
+        });
+        resizeCanvas(canvas);
+
+        animate(ctx, canvas);
+    })
+
+</script>
+</body>
+</html>
