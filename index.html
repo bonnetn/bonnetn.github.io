@@ -224,6 +224,39 @@
             pointer-events: none; /* Important! */
         }
 
+        .tooltip {
+            position: relative;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .tooltip:hover::after {
+            content: "No IPs are stored. Visitor count is estimated using HyperLogLog and resets every 30 days.";
+            position: absolute;
+            left: 50%;
+            bottom: 100%;
+            transform: translateX(-50%);
+            width: 200px;
+            background: black;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 12px;
+            text-align: center;
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+
+        .tooltip::after {
+            content: "";
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+        }
+
+
     </style>
 </head>
 
@@ -351,7 +384,7 @@ l4UAczz1NtM+QknJFOTxoM0jfJ9QwxMyCcPftqqI9MDnUWFu+MC9qshdQTvV3ZAPFy3aKUkUCehB
 
 <!-- Visitor counter -->
 <div class="visitor-counter">
-    <p>You are visitor #TODO</p>
+    <p>Unique Visitors <span class="tooltip">(Last 30 Days)*</span>: <span id="visitor-count-value">#loading</span></p>
 </div>
 
 <!-- Footer -->
@@ -368,6 +401,10 @@ l4UAczz1NtM+QknJFOTxoM0jfJ9QwxMyCcPftqqI9MDnUWFu+MC9qshdQTvV3ZAPFy3aKUkUCehB
 </footer>
 
 <script>
+    const EVENT_ENDPOINT_URL = "https://widgets.nicolasbon.net/events";
+    const COUNTER_VALUE_ENDPOINT_URL = "https://widgets.nicolasbon.net/counter/value";
+    const VISITOR_COUNTER_ENDPOINT_URL = "https://widgets.nicolasbon.net/visitor/count";
+
     // ================================
     //     Apply "snow" effect
     // ================================
@@ -465,15 +502,12 @@ l4UAczz1NtM+QknJFOTxoM0jfJ9QwxMyCcPftqqI9MDnUWFu+MC9qshdQTvV3ZAPFy3aKUkUCehB
     // ================================
     //     Button click counter
     // ================================
-    const EVENT_ENDPOINT_URL = "https://widgets.nicolasbon.net/events";
-    const COUNTER_VALUE_ENDPOINT_URL = "https://widgets.nicolasbon.net/counter/value";
 
     const updateButtonValue = (newValue) => {
         document.getElementById("my-button").textContent = `Collectively, visitors of this website clicked this button ${newValue.toLocaleString()} times.`;
     };
 
     const onMyButtonClicked = (event) => {
-        console.log("Button clicked!", event);
         createExplosion(event.clientX + window.scrollX, event.clientY + window.scrollY);
 
         fetch(COUNTER_VALUE_ENDPOINT_URL, {
@@ -606,6 +640,42 @@ l4UAczz1NtM+QknJFOTxoM0jfJ9QwxMyCcPftqqI9MDnUWFu+MC9qshdQTvV3ZAPFy3aKUkUCehB
 
         animate(ctx, canvas);
     })
+
+    // ================================
+    // Visitor counter
+    // ================================
+
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch(VISITOR_COUNTER_ENDPOINT_URL,
+            {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({})
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Request failed with status ${response.status}`);
+                }
+                return response.json();
+            })
+            .catch(error => {
+                console.error('POST visitor count error:', error);
+            });
+
+        fetch(VISITOR_COUNTER_ENDPOINT_URL)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Request failed with status ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('visitor-count-value').textContent = data.value;
+            })
+            .catch(error => {
+                console.error('GET visitor count error:', error);
+            });
+    });
 
 </script>
 </body>
