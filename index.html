@@ -232,7 +232,7 @@
         }
 
         .tooltip:hover::after {
-            content: "No IPs are stored. Visitor count is estimated using HyperLogLog and resets every 30 days.";
+            content: "No IPs are stored as-is, but they are hashed into a HyperLogLog structure for counting. The data is deleted at least every 30 days.";
             position: absolute;
             left: 50%;
             bottom: 100%;
