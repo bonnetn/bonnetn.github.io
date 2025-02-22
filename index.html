@@ -384,7 +384,7 @@ l4UAczz1NtM+QknJFOTxoM0jfJ9QwxMyCcPftqqI9MDnUWFu+MC9qshdQTvV3ZAPFy3aKUkUCehB
 
 <!-- Visitor counter -->
 <div class="visitor-counter">
-    <p>Unique Visitors <span class="tooltip">(Last 30 Days)*</span>: <span id="visitor-count-value">#loading</span></p>
+    <p>Unique Visitors <span class="tooltip">(Last 30 Days)*</span>: <span id="visitor-count-value">Loading...</span></p>
 </div>
 
 <!-- Footer -->
@@ -660,9 +660,8 @@ l4UAczz1NtM+QknJFOTxoM0jfJ9QwxMyCcPftqqI9MDnUWFu+MC9qshdQTvV3ZAPFy3aKUkUCehB
             })
             .catch(error => {
                 console.error('POST visitor count error:', error);
-            });
-
-        fetch(VISITOR_COUNTER_ENDPOINT_URL)
+            })
+            .then(() => fetch(VISITOR_COUNTER_ENDPOINT_URL))
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`Request failed with status ${response.status}`);
