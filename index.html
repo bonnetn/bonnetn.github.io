@@ -49,7 +49,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nicolas Bonnet</title>
 
-    <meta name="description" content="Systems engineer at Databricks. I work on cross-cloud data infrastructure, performance, reliability, security, and AI-assisted engineering.">
+    <meta name="description" content="Software engineer at Databricks. I work on cross-cloud data infrastructure, performance, reliability, security, and AI-assisted engineering.">
     <meta name="theme-color" content="#08111f">
 
     <link rel="stylesheet" href="styles.css">
@@ -82,7 +82,7 @@
             </figure>
         </section>
 
-        <p class="capability-line" aria-label="Technical focus">Cross-cloud infrastructure · Envoy · Rust · Scala</p>
+        <p class="capability-line">Cross-cloud infrastructure · Envoy · Rust · Scala</p>
 
         <section id="work" class="section" aria-labelledby="work-title">
             <div class="section-heading">
@@ -94,11 +94,11 @@
                 <div>
                     <h3>I design the path between platform APIs and cloud storage.</h3>
                     <p>I decide how requests are routed and which accesses are allowed. The result has to stay secure and auditable.</p>
-                    <div class="work-axes" aria-label="How I work on the platform">
-                        <div class="work-axis"><h4>Architecture</h4><p>I define interfaces and boundaries across proxy behavior, platform APIs, and cloud-specific semantics.</p></div>
-                        <div class="work-axis"><h4>Hot path</h4><p>I balance cost, CPU, latency, and throughput in the path every request takes.</p></div>
-                        <div class="work-axis"><h4>Production</h4><p>I make failures easier to diagnose, rollouts safer, and the platform dependable for the systems above it.</p></div>
-                    </div>
+                    <ul class="work-axes">
+                        <li class="work-axis"><h4>Architecture</h4><p>I define interfaces and boundaries across proxy behavior, platform APIs, and cloud-specific semantics.</p></li>
+                        <li class="work-axis"><h4>Hot path</h4><p>I balance cost, CPU, latency, and throughput in the path every request takes.</p></li>
+                        <li class="work-axis"><h4>Production</h4><p>I make failures easier to diagnose, rollouts safer, and the platform dependable for the systems above it.</p></li>
+                    </ul>
                     <p>Some of the work is customer-facing. Some of it is close to the metal, in Envoy extensions and Rust modules. I also use agents to inspect failures, collect evidence from code and telemetry, run targeted experiments, and validate the resulting change.</p>
                 </div>
             </article>
@@ -114,7 +114,7 @@
                 </article>
                 <div class="background-entry">
                     <div class="entry-label">Training &amp; security</div>
-                    <div class="credentials" aria-label="Education and security qualifications">
+                    <div class="credentials">
                         <p><strong>Cybersecurity.</strong> I hold the <a href="https://cyber.gouv.fr/offre-de-service/formations-entrainement-et-decouverte-des-metiers/formations/formations-delivrees-par-lanssi/formation-essi/" target="_blank" rel="noreferrer">ANSSI-delivered ESSI qualification</a> in Information Systems Security, a French Bac+5 cybersecurity qualification.</p>
                         <p><strong>Engineering.</strong> I have an <a href="https://www.telecom-sudparis.eu/en/admissions/admission-general-engineering-program/" target="_blank" rel="noreferrer">engineering degree from Télécom SudParis</a>, Institut Polytechnique de Paris, conferring a master’s degree.</p>
                     </div>
@@ -130,11 +130,10 @@
     </main>
 
     <footer class="copyright-footer">
-        <span>© <span id="currentYear"></span> · nicolasbon.net</span>
+        <span>© 2026 · nicolasbon.net</span>
         <span>Software engineer at Databricks.</span>
     </footer>
 </div>
 
-<script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
 </body>
 </html>
