@@ -46,655 +46,95 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nicolas' website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nicolas Bonnet</title>
 
-    <!-- Retro Favicon -->
-    <link rel="icon" type="image/png" href="https://www.example.com/favicon.png"/>
+    <meta name="description" content="Systems engineer at Databricks. I work on cross-cloud data infrastructure, performance, reliability, security, and AI-assisted engineering.">
+    <meta name="theme-color" content="#08111f">
 
-    <style>
-        /* Minimalist CSS, typical of the 90s style */
-        body {
-            background-color: black;
-            background: url("https://upload.wikimedia.org/wikipedia/commons/a/a0/Digital_rain_animation_small_letters_shine.gif") repeat;
-            background-size: auto;
-            margin: 0;
-            padding: 0;
-            font-family: "Comic Sans MS", "Arial", sans-serif;
-            color: black;
-        }
-
-        body a {
-            color: #00FF00;
-        }
-
-        body a:link {
-            color: #0000EE;
-        }
-
-        body a:visited {
-            color: #551A8B;
-        }
-
-
-        h1 {
-            color: #FF00FF;
-            text-align: center;
-        }
-
-        /* Neon-like links, for that retro vibe */
-        a {
-            color: #00FF00;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #FFD700;
-            text-decoration: underline;
-        }
-
-        /* For the overlay snow effect */
-        .snowflake {
-            position: fixed;
-            top: -50px;
-            font-size: 24px;
-            color: #FFFFFF;
-            user-select: none;
-            pointer-events: none;
-        }
-
-        /* For the images that follow the cursor */
-        .trailer {
-            position: absolute;
-            pointer-events: none;
-            font-size: 1rem;
-            transition: opacity 1s ease-out;
-            opacity: 0;
-        }
-
-        .fake-browser-warning {
-            background-color: yellow;
-            padding: 10px;
-            border: 3px double #FF0000;
-            text-align: center;
-        }
-
-        .fake-browser-warning p {
-            font-size: 18px;
-            color: magenta;
-            margin: 0;
-            font-weight: bold;
-        }
-
-        .welcome-banner {
-            background-color: cyan;
-            overflow: hidden;
-        }
-
-        .welcome-banner p {
-            display: inline-block;
-            padding-left: 100%;
-            animation: welcome-banner-marquee 30s linear infinite;
-            margin: 0;
-
-            font-family: "Comic Sans MS", "Arial", sans-serif;
-            color: magenta;
-            font-size: 24px;
-            text-wrap: nowrap;
-        }
-
-        @keyframes welcome-banner-marquee {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(-100%, 0);
-            }
-        }
-
-        .under-construction-banner {
-            text-align: center;
-        }
-
-        .under-construction-banner p {
-            font-size: 24px;
-            font-weight: bold;
-            color: red;
-        }
-
-        .main-section {
-            border: 5px ridge black;
-            padding: 10px;
-            text-align: center;
-            background-color: white;
-            font-family: Arial, sans-serif;
-            margin-left: 10rem;
-            margin-right: 10rem;
-        }
-
-
-        .main-section h2 {
-            color: red;
-        }
-
-        .main-content section {
-            text-align: left;
-            padding-left: 2rem;
-            padding-right: 2rem;
-            text-wrap: wrap;
-        }
-
-        .main-content {
-            display: flex;
-            /*flex-direction: row;*/
-        }
-
-
-        @media (max-width: 1200px) {
-            .main-content {
-                flex-direction: column;
-            }
-        }
-
-        .visitor-counter {
-            text-align: center;
-            font-family: "Comic Sans MS", "Arial", sans-serif;
-            color: magenta;
-            font-size: large;
-        }
-
-        .copyright-footer {
-            text-align: center;
-            font-family: "Comic Sans MS", "Arial", sans-serif;
-            font-size: medium;
-            color: white;
-        }
-
-        #my-button {
-            height: 3rem;
-            font-style: italic;
-            position: relative;
-            background: linear-gradient(45deg, #ff5858, #f09819);
-        }
-
-        #fireworks-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            pointer-events: none; /* Important! */
-        }
-
-        .tooltip {
-            position: relative;
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .tooltip:hover::after {
-            content: "No IPs are stored as-is, but they are hashed into a HyperLogLog structure for counting. The data is deleted at least every 30 days.";
-            position: absolute;
-            left: 50%;
-            bottom: 100%;
-            transform: translateX(-50%);
-            width: 200px;
-            background: black;
-            color: white;
-            padding: 5px;
-            border-radius: 5px;
-            font-size: 12px;
-            text-align: center;
-            visibility: visible;
-            opacity: 1;
-            transition: opacity 0.2s;
-        }
-
-        .tooltip::after {
-            content: "";
-            visibility: hidden;
-            opacity: 0;
-            position: absolute;
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+<div class="site-shell">
+    <header class="site-header">
+        <a class="brand" href="/">nicolas<span>.</span>bonnet</a>
+        <nav aria-label="Primary navigation">
+            <a href="#work">Current work</a>
+            <a href="#background">Background</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-
-<!-- Big 90s-style warning about resolution and browsers -->
-<header class="fake-browser-warning">
-    <p>THIS SITE IS BEST VIEWED AT 800x600 AND ON INTERNET EXPLORER 5 OR NETSCAPE 4</p>
-</header>
-
-<!-- Horizontal scrolling text -->
-<header class="welcome-banner">
-    <p>Welcome to my website!!!</p>
-</header>
-
-<!-- Main title -->
-<h1> Nicolas' website </h1>
-
-<section class="main-section">
-    <h2>
-        <b>Welcome!</b>
-    </h2>
-    <div class="main-content">
-        <div>
-            <img src="https://avatars0.githubusercontent.com/u/36550428" alt="My face">
-        </div>
-
-        <section>
-            <h3>Who am I?</h3>
-            <p>
-                I'm a <strong>Senior Software Engineer</strong> at <a href="https://databricks.com/">Databricks</a>, working on the <strong>Object Storage Platform</strong> team. My focus is on <strong>building a high-performance proxy</strong> for transferring <strong>petabytes of data</strong> efficiently across AWS S3, Google Cloud Storage, and Azure Blob.
-                This access layer abstracts storage complexities for both internal engineers and external customers, handling <strong>performance optimizations, security (encryption, network), and cost efficiency</strong>.
-                I primarily work with <strong>Scala and <a href="https://www.envoyproxy.io/">Envoy</a></strong>.
-            </p>
-
-            <p>
-                Before that, I worked at <a href="https://www.uber.com/">Uber</a> on the <strong>payments platform</strong>, where I helped design and build a system that manages customer and driver payment instruments.
-                My work focused on <strong>simplifying global payment onboarding</strong> and improving the <strong>reliability, scalability, and security</strong> of payment services.
-                I built and maintained high-throughput <strong>Golang, Java, and Python microservices</strong>, led the design of a <strong>payment profile access control system</strong>, and worked on initiatives to enhance system resilience.
-                I also contributed to expanding payment method support worldwide and helped onboard engineers by teaching a recurring technical communication course.
-            </p>
-
-            <p>
-                I'm especially interested in <strong>distributed systems, observability, scaling, and databases</strong>.
-                I enjoy tackling challenges that make systems <strong>more efficient, reliable, and easier to operate</strong>.
-                I like to move fast, iterate, and make decisions based on data.
-                I also believe in keeping things simple—because simple solutions tend to work best.
-            </p>
-
-            <h3>Some stuff on the side to keep me busy</h3>
-            <ul>
-                <li>
-                    I was part of <a href="https://github.com/outech-robotic">OUTech Robotics</a>, where I designed and
-                    implemented the
-                    <strong>high-level strategy software</strong> for our competition robot.
-                </li>
-                <li>
-                    I'm also interested in <strong>cybersecurity</strong>.
-                    While at university, I was a member of the <a href="https://hackademint.org/">InfoSec club</a> and enjoyed solving <strong>binary exploitation challenges</strong>.
-                    I even gave a talk on the topic—you can check out the <a href="/slides_pwn.pdf">slides here</a>.
-                </li>
-                <li>
-                    I enjoy working with other engineers and sharing what I know. Seeing others grow and improve is
-                    something I deeply value.
-                </li>
-                <li>
-                    You can find some of my <strong>projects and open-source work</strong> on my
-                    <a href="https://github.com/bonnetn">GitHub</a>.
-                </li>
-            </ul>
-
-
-            <h3>Fun stuff..</h3>
-            <canvas id="fireworks-canvas"></canvas>
-            <button id="my-button">Loading...</button>
-
-            <h3>Contact</h3>
-
-            <table>
-                <tbody>
-                <tr>
-                    <td>LinkedIn</td>
-                    <td><a href="https://www.linkedin.com/in/bonnet-n/">Link</a></td>
-                </tr>
-                <tr>
-                    <td>Mail</td>
-                    <td><a href="mailto:mail@nicolasbon.net">mail@nicolasbon.net</a></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <h3 id="pgp-key">PGP key</h3>
-
-            <details>
-                <summary>Click to view PGP key</summary>
-                <pre>-----BEGIN PGP PUBLIC KEY BLOCK-----
-
-mFMEamSEYRMJKyQDAwIIAQEHAgMEZOc8vjgaOcZuftXg7lJEDn2t8yvoBRKEXeyn
-nLia4nwcF8xME520vXPaNmnYvQLVENVlwxPnquk5xjSw2BZjf7QkTmljb2xhcyBC
-b25uZXQgPG1haWxAbmljb2xhc2Jvbi5uZXQ+iLUEExMIAF0WIQS4lNnLV8LlRe+J
-5RMRiBUTUnSIwQUCamSEYRsUgAAAAAAEAA5tYW51MiwyLjUrMS4xMiwwLDMCGwMF
-CRLMAwAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQEYgVE1J0iMGKGgEA
-i1yIZRi0vBw9rQKFbK6YT2HbCl/7CNNpiiU+TkKYdJMA/AvUBk+tcmFM+XXft5Ve
-k+zISWCkyVE48RiirmXwHUF4uQT7BWpkhGEIAAAE8QkrJAMDAggBAQcCAwRvx9pZ
-UA27E019Ylj148LzrW3EmEP+Xsz4JSGjNEtvejrU0BDbP8rVBDLegx1pifADWNHY
-iH0ZgZytNaoYJq+wAAAEoEF6dwigBdmzPPIyzEvxd63IHHwqXmQWYYAGN1jxzPzF
-pOOVWna3Y9rYLP0qa3w6jzjxP92YJ+nbIJ3UdONGvuI5XlKAaY5JjdILdmMBggM3
-C91hXpIJJT6FVvRcJhJpHTpVDzahxGwseHAcdhWyYxW8p73Ru6JgD7bQJ5A7V2Kh
-dle8VzTSMXl7YTo1v/ypnByck3T4kXWEaATDu0HSl24rPlcUSQlwsKA7uwqUHb7o
-uCt6hjOhjjY8wAZ0fIpXOKtAi7JcQUqauP27ZKwXj9Hoh9NqavO6dbHoa7rwWBbL
-cGhiKNm0uUz0V2lcs1eQEZ03GOd3jFM1sQeoGj54ZhjhUXplO32aEEW7fjJ8n+EY
-JF9yFh+cxJoJoOfkZPplrU7pIOBzoQ33E/fGkVXTyRR2avpHF1gTs9YpCJFHuVqg
-R6j8e+cjh4hYq5J8kxGzMHZwqOL4wq4Xo3k1oHXHVu1mfJIFM+vQu8GaLimUhjxE
-H0IzT10StVFDOIbpcK+0QMHzKDFoe2xFkQlwHlLFU0/hm1a8swDhBZjnCjD4InfL
-E78LZC5mDpnGRCE6TkB6GR2CSaEmnQAtw+1sPvsKDPwjtV7EmC3hbwzTyIhFbOaR
-NCNVwhbFhbI1kdX3YRZ2jNwUyIUBGWIswO8JV9axkZkBUIfbf3gou8nWr+1BlJfJ
-Gq7LJNoaI+8mPHnwmesSW/aVNmYBcJdFoL8hICeoJMJCtap3ApDVDYC2Jhd7qc81
-FsL3MN3jnI1WHXtBgggRGQt8j5KTF7bgKLOlbkWsU3/LxF+2E0uAXfYiQ5GKrm1b
-PjBzleqiEsaMT/L3yA88fyLoKXC5rfuKJkayOp85Tq+lJlT0OEf8byElOugEKM3T
-sIisYahgzVX6y5X6T4REE4RmVOooeb7oCIl4vl+jVaKmV3ZIsB1HdEojpOgiXxp7
-ooiKba6ZBP15ErSZpPqgfU3lnfQqCe9HDeF0Mwwmk03AEdf2ZGoyW09lP9HcMLvs
-BUXjaIVIS1aMnPwsqZ5hp/zsZNhwoXPQndV7FnSqTABXXMVaLh1ng7tkKGMMd4oB
-Dm7TrrTmroqrVYHBq8Rpx0p7aCNqpEBYX54KlOxDbPjlI5K2NQSosaKBCHOXmMRR
-mDibVhGHO3kkOVrrQE8JPq2DNYWSuJZHRkrsfXSbwwKBOvLqN8YUo1HkylDRQvJc
-GAoKQojnEakSJKi0C7TUCR/UVcS8kyTseDOlxDxlb2vmP8YDg29nPf0XF0U0HmA8
-qtTblPCgTNljqDEBM3d7T94FbDMQg7UzVBRmQSdANsdIwTWgQr3gruygRkO8C9X7
-ozd8HExLzhHqZ9dDNdJriA0Tyb/Xbp5zxYipGoKKR7Onwlvopn1Gg9SDAm1bN5nX
-on97hfeDZc6rolxVExkSAi5LD3p8LWmWK3LYRGsWC4A6PBvKL917rWr4PgA4AysK
-IhhGQsMIs9o4ZUo6WE4rjX57cNwimQsqnjGjc9t3CdWmIQQcSa12zxlqe3EDto5Z
-tGgXic9YB8doJkKmBEgaKvrCMgOpbfkF+kXi3cOOKaG283MbpsKY+Dg1RypH2gkb
-iJoEGBMIAEIWIQS4lNnLV8LlRe+J5RMRiBUTUnSIwQUCamSEYRsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMiwwLDMCGwwFCRLMAwAACgkQEYgVE1J0iME0mgEAjij3AsMB
-17TWI4rO4tRB45vMq4nX1vEl9QE/JMQdACQA/2lWRsgaX+RJv2wC/emJtwDnxI8t
-V8DeJMm7ViuK6gNu
-=Pt5D
------END PGP PUBLIC KEY BLOCK-----
-                    </pre>
-            </details>
+    <main>
+        <section class="hero" aria-labelledby="intro-title">
+            <div>
+                <div class="eyebrow">Software engineer</div>
+                <h1 id="intro-title">I build high-throughput data infrastructure <em>across clouds.</em></h1>
+                <p class="lede">At Databricks, I work between platform APIs, proxy behavior, and the storage systems behind AWS, Azure, and GCP. I care about cost, CPU, latency, security, and reliability.</p>
+                <div class="hero-actions">
+                    <a class="button" href="#work">What I work on</a>
+                    <a class="button secondary" href="#contact">Get in touch</a>
+                </div>
+            </div>
+            <figure class="portrait-card">
+                <img src="https://avatars0.githubusercontent.com/u/36550428" alt="Portrait of Nicolas Bonnet" width="250" height="250" loading="eager" decoding="async">
+            </figure>
         </section>
-    </div>
-</section>
 
+        <p class="capability-line" aria-label="Technical focus">Cross-cloud infrastructure · Envoy · Rust · Scala</p>
 
-<!-- Visitor counter -->
-<div class="visitor-counter">
-    <p>Unique Visitors <span class="tooltip">(Last 30 Days)*</span>: <span id="visitor-count-value">Loading...</span></p>
+        <section id="work" class="section" aria-labelledby="work-title">
+            <div class="section-heading">
+                <h2 id="work-title">Current work</h2>
+                <p class="section-intro">I work from interface design and architecture through implementation, rollout, and production support.</p>
+            </div>
+            <article class="feature-work">
+                <div class="feature-label"><a href="https://www.databricks.com" target="_blank" rel="noreferrer">Databricks</a> · object storage platform</div>
+                <div>
+                    <h3>I design the path between platform APIs and cloud storage.</h3>
+                    <p>I decide how requests are routed and which accesses are allowed. The result has to stay secure and auditable.</p>
+                    <div class="work-axes" aria-label="How I work on the platform">
+                        <div class="work-axis"><h4>Architecture</h4><p>I define interfaces and boundaries across proxy behavior, platform APIs, and cloud-specific semantics.</p></div>
+                        <div class="work-axis"><h4>Hot path</h4><p>I balance cost, CPU, latency, and throughput in the path every request takes.</p></div>
+                        <div class="work-axis"><h4>Production</h4><p>I make failures easier to diagnose, rollouts safer, and the platform dependable for the systems above it.</p></div>
+                    </div>
+                    <p>Some of the work is customer-facing. Some of it is close to the metal, in Envoy extensions and Rust modules. I also use agents to inspect failures, collect evidence from code and telemetry, run targeted experiments, and validate the resulting change.</p>
+                </div>
+            </article>
+        </section>
+
+        <section id="background" class="section" aria-labelledby="background-title">
+            <div class="background-content">
+                <h2 id="background-title">Background</h2>
+                <p class="section-intro">My background combines software engineering with formal training in cybersecurity. That still shapes how I think about access, failure modes, and system boundaries.</p>
+                <article class="background-entry">
+                    <div class="entry-label">Before Databricks</div>
+                    <div><h3>Uber Payments</h3><p>At Uber, I worked on the payment-profile platform behind more than 80 payment methods in over 70 countries. It stored and served sensitive payment instruments.</p><p>The system handled very high request volumes. A failure could stop people from paying, so we had to keep it available, protect the data, and evaluate risk to help detect fraud.</p></div>
+                </article>
+                <div class="background-entry">
+                    <div class="entry-label">Training &amp; security</div>
+                    <div class="credentials" aria-label="Education and security qualifications">
+                        <p><strong>Cybersecurity.</strong> I hold the <a href="https://cyber.gouv.fr/offre-de-service/formations-entrainement-et-decouverte-des-metiers/formations/formations-delivrees-par-lanssi/formation-essi/" target="_blank" rel="noreferrer">ANSSI-delivered ESSI qualification</a> in Information Systems Security, a French Bac+5 cybersecurity qualification.</p>
+                        <p><strong>Engineering.</strong> I have an <a href="https://www.telecom-sudparis.eu/en/admissions/admission-general-engineering-program/" target="_blank" rel="noreferrer">engineering degree from Télécom SudParis</a>, Institut Polytechnique de Paris, conferring a master’s degree.</p>
+                    </div>
+                </div>
+                <p class="tinkering-note"><strong>In my spare time.</strong> I like taking systems apart and building small things to see how they work.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section" aria-labelledby="contact-title">
+            <div class="section-heading"><h2 id="contact-title">Get in touch.</h2><p class="section-intro">I work on architecture, performance, distributed systems, operations, and AI-assisted engineering.</p></div>
+            <dl class="contact-links"><div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/bonnet-n/">linkedin.com/in/bonnet-n</a></dd></div><div><dt>GitHub</dt><dd><a href="https://github.com/bonnetn">github.com/bonnetn</a></dd></div><div><dt>Email</dt><dd><a href="mailto:mail@nicolasbon.net">mail@nicolasbon.net</a></dd></div></dl>
+        </section>
+    </main>
+
+    <footer class="copyright-footer">
+        <span>© <span id="currentYear"></span> · nicolasbon.net</span>
+        <span>Software engineer at Databricks.</span>
+    </footer>
 </div>
 
-<!-- Footer -->
-<footer class="copyright-footer">
-    <p><span style="display:inline-block; transform: scaleX(-1);" title="copyleft symbol">©</span> 1999-<span
-            id="currentYear"></span> - nicolasbon.net</p>
-    <p><a href="mailto:mail@nicolasbon.net">Contact Me</a></p>
-</footer>
-
-<footer class="under-construction-banner">
-    <p> This website is still under construction! </p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/TrianguloConstru%C3%A7%C3%A3o.png"
-         alt="Under Construction" width="200" height="200"/>
-</footer>
-
-<script>
-    const EVENT_ENDPOINT_URL = "https://widgets.nicolasbon.net/events";
-    const COUNTER_VALUE_ENDPOINT_URL = "https://widgets.nicolasbon.net/counter/value";
-    const VISITOR_COUNTER_ENDPOINT_URL = "https://widgets.nicolasbon.net/visitor/count";
-
-    // ================================
-    //     Apply "snow" effect
-    // ================================
-    const MAX_FLAKES = 20;
-    const SNOW_CHARACTER = "✨";
-
-    const createSnowflake = () => {
-        const snowflake = document.createElement("div");
-        snowflake.className = "snowflake";
-        snowflake.textContent = SNOW_CHARACTER;
-
-        snowflake.style.left = Math.random() * window.innerWidth + "px";
-        snowflake.style.top = "-50px";
-
-        const size = (Math.random() * 20) + 10;
-        snowflake.style.fontSize = size + "px";
-
-        snowflake.dataset.speed = (Math.random() * 2) + 0.5;
-
-        document.body.appendChild(snowflake);
-        return snowflake;
-    }
-
-    const animateSnowflakes = (flakes) => {
-        for (const flake of flakes) {
-            const top = parseFloat(flake.style.top);
-            const speed = parseFloat(flake.dataset.speed);
-
-            // Move the flake down
-            flake.style.top = (top + speed) + "px";
-
-            // If flake goes off-screen, reset it at the top
-            if (top > window.innerHeight) {
-                flake.style.top = "-50px";
-                flake.style.left = Math.random() * window.innerWidth + "px";
-            }
-        }
-        requestAnimationFrame(() => animateSnowflakes(flakes));
-    }
-
-    addEventListener("DOMContentLoaded", () => {
-        const flakes = Array.from({length: MAX_FLAKES}, createSnowflake);
-        animateSnowflakes(flakes);
-    })
-
-    // ================================
-    //     Apply cursor trailer
-    // ================================
-    const TRAILER_COUNT = 10;
-    const TRAILER_EMOJI = "🔥";
-    const UPDATE_TRAILER_EVERY_N_TICK = 3;
-
-    const createTrailer = () => {
-        const span = document.createElement("span");
-        span.textContent = TRAILER_EMOJI;
-        span.className = "trailer";
-        span.style.left = "0px";
-        span.style.top = "0px";
-        span.style.zIndex = 9999; // ensure it appears above other elements
-        document.body.appendChild(span);
-        return span;
-    }
-
-    const trailerMoveMouse = (e, trailerElements, currentIteration) => {
-        if (currentIteration % 3 === 0) {
-            const span = trailerElements[currentIteration / UPDATE_TRAILER_EVERY_N_TICK];
-            span.style.left = (e.pageX - 10) + "px";
-            span.style.top = (e.pageY - 10) + "px";
-
-            span.style.opacity = 1;
-
-            setTimeout(function () {
-                span.style.opacity = 0;
-            }, 200);
-        }
-
-        return (currentIteration + 1) % (TRAILER_COUNT * UPDATE_TRAILER_EVERY_N_TICK);
-    };
-
-    addEventListener("DOMContentLoaded", (event) => {
-        const trailerElements = Array.from({length: TRAILER_COUNT}, createTrailer);
-        let currentIteration = 0;
-        document.addEventListener("mousemove", (e) => {
-            currentIteration = trailerMoveMouse(e, trailerElements, currentIteration);
-        });
-    })
-
-    // ================================
-    //     Update footer year
-    // ================================
-    addEventListener("DOMContentLoaded", (event) => {
-        document.getElementById("currentYear").textContent = new Date().getFullYear();
-    });
-
-    // ================================
-    //     Button click counter
-    // ================================
-
-    const updateButtonValue = (newValue) => {
-        document.getElementById("my-button").textContent = `Collectively, visitors of this website clicked this button ${newValue.toLocaleString()} times.`;
-    };
-
-    const onMyButtonClicked = (event) => {
-        createExplosion(event.clientX + window.scrollX, event.clientY + window.scrollY);
-
-        fetch(COUNTER_VALUE_ENDPOINT_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({}) // An empty object as requested
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Request failed with status ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                updateButtonValue(data.value);
-            })
-            .catch(error => {
-                console.error("POST counter value error:", error);
-            });
-    }
-
-    addEventListener("DOMContentLoaded", (event) => {
-        const myButton = document.getElementById('my-button');
-        myButton.addEventListener('click', (e) => {
-            onMyButtonClicked(e);
-        });
-
-        fetch(COUNTER_VALUE_ENDPOINT_URL)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Request failed with status ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                updateButtonValue(data.value);
-            })
-            .catch(error => {
-                console.error("GET counter value error:", error);
-            });
-    });
-
-    const eventSource = new EventSource(EVENT_ENDPOINT_URL);
-    eventSource.addEventListener("newcountervalue", (event) => {
-        try {
-            const data = JSON.parse(event.data);
-            updateButtonValue(data.value);
-        } catch (error) {
-            console.error("Error parsing SSE data:", error);
-        }
-    });
-
-    eventSource.onerror = (error) => {
-        console.error("SSE error:", error);
-    };
-
-    const resizeCanvas = (canvas) => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    };
-
-    class Particle {
-        constructor(x, y) {
-            this.x = x;
-            this.y = y;
-            const angle = Math.random() * 2 * Math.PI;
-            const speed = Math.random() * 5 + 2; // between 2 and 7
-            this.vx = Math.cos(angle) * speed;
-            this.vy = Math.sin(angle) * speed;
-            this.color = `hsl(${Math.floor(Math.random() * 360)}, 100%, 60%)`;
-            this.life = 60 + Math.random() * 20; // frames (about 1s+)
-            this.remainingLife = this.life;
-            this.size = 5;
-            this.opacity = 1;
-        }
-
-        update() {
-            this.remainingLife -= 1;
-            this.x += this.vx;
-            this.y += this.vy;
-            // Fade out
-            this.opacity = this.remainingLife / this.life;
-        }
-
-        draw(context) {
-            context.save();
-            context.globalAlpha = this.opacity;
-            context.fillStyle = this.color;
-            context.beginPath();
-            context.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-            context.fill();
-            context.restore();
-        }
-    }
-
-    let particles = [];
-
-    // Create an explosion of particles at (x, y)
-    const createExplosion = (x, y) => {
-        const numParticles = 30;
-        for (let i = 0; i < numParticles; i++) {
-            particles.push(new Particle(x, y));
-        }
-    };
-
-    // Animate & render
-    const animate = (ctx, canvas) => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        particles.forEach(p => {
-            p.update();
-            p.draw(ctx);
-        });
-
-        particles = particles.filter(p => p.remainingLife > 0);
-
-        requestAnimationFrame(() => animate(ctx, canvas));
-    };
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const canvas = document.querySelector('#fireworks-canvas');
-        const ctx = canvas.getContext('2d');
-
-        window.addEventListener('resize', () => {
-            resizeCanvas(canvas)
-        });
-        resizeCanvas(canvas);
-
-        animate(ctx, canvas);
-    })
-
-    // ================================
-    // Visitor counter
-    // ================================
-
-    document.addEventListener('DOMContentLoaded', () => {
-        fetch(VISITOR_COUNTER_ENDPOINT_URL,
-            {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({})
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Request failed with status ${response.status}`);
-                }
-                return response.json();
-            })
-            .catch(error => {
-                console.error('POST visitor count error:', error);
-            })
-            .then(() => fetch(VISITOR_COUNTER_ENDPOINT_URL))
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Request failed with status ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                document.getElementById('visitor-count-value').textContent = data.value;
-            })
-            .catch(error => {
-                console.error('GET visitor count error:', error);
-            });
-    });
-
-</script>
+<script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
 </body>
 </html>
